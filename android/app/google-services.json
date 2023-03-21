@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "434849707243",
+    "project_id": "cheapify-b566f",
+    "storage_bucket": "cheapify-b566f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434849707243:android:962203f490315a7b8b7aae",
+        "android_client_info": {
+          "package_name": "io.cheapify.cheapify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434849707243-5n5gel752m5hrgboabgk4tqvslakqtek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4nhBTkHfBditQ0hzd4tskvhowZ4Gefzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434849707243-5n5gel752m5hrgboabgk4tqvslakqtek.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "434849707243-b46fmfplhof7m62vbiuhgae6cac06l1e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.cheapify.cheapify"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
