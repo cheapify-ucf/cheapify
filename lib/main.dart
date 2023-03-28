@@ -1,3 +1,4 @@
+import 'package:cheapify/pages/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 247, 231, 203)),
       ),
-      home: const LoginScreen(),
+      home: WelcomeScreen(),
     );
   }
 }
