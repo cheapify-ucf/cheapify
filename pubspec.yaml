@@ -96,8 +96,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/images/transparent.png
-   - assets/images/cheapify.png
+   - assets/images/
   #   - assets/
   #   - assets/covers/
   #   - assets/congrats.gif
