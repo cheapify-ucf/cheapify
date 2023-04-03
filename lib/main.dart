@@ -2,26 +2,63 @@ import 'package:cheapify/pages/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  //Firebase.initializeApp(
-   // options: DefaultFirebaseOptions.currentPlatform,
-  //);
+void main() async {
+  // i'm assuming these are all boilerplate
+  // i don't really understand under the hood here
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+/// We are using a StatefulWidget such that we only create the [Future] once,
+/// no matter how many times our widget rebuild.
+/// If we used a [StatelessWidget], in the event where [App] is rebuilt, that
+/// would re-initialize FlutterFire and make our application re-enter loading state,
+/// which is undesired.
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  /// The future is part of the state of our widget. We should not call `initializeApp`
+  /// directly inside [build].
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Cheapify',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 247, 231, 203)),
-      ),
-      home: WelcomeScreen(),
+    return FutureBuilder(
+      // Initialize FlutterFire:
+      future: _initialization,
+      builder: (context, snapshot) {
+        // This is a generic error you can throw to test
+        // snapshot = AsyncSnapshot.withError(ConnectionState.none, ["trace"]);
+
+        // This is a loading connection state to test that too
+        // snapshot = AsyncSnapshot.waiting();
+
+        // render conditionally for errors, success, or unresolved
+        if (snapshot.hasError) {
+          return const MaterialApp();
+        } else if (snapshot.connectionState == ConnectionState.done) {
+          return MaterialApp(
+            title: 'Cheapify',
+            theme: ThemeData(
+              useMaterial3: true,
+              colorScheme: ColorScheme.fromSeed(
+                  seedColor: const Color.fromARGB(255, 247, 231, 203)),
+            ),
+            home: WelcomeScreen(),
+          );
+        } else {
+          return const MaterialApp(
+            home: Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            ),
+          );
+        }
+      },
     );
   }
 }
@@ -37,7 +74,6 @@ class MyHomePage extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-
 
   // They can probably get redirected to this page after logging in?
   // So I won't be deleting anything for now.
