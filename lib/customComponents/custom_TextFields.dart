@@ -19,7 +19,7 @@ class MyTextField extends StatelessWidget
   Widget build(BuildContext context)
   {
     return TextFormField(
-      validator: (val) => val!.isEmpty ? "Enter your email!" : null,
+      validator: (val) => val!.isEmpty ? "Enter your $hintText!" : null,
       controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
