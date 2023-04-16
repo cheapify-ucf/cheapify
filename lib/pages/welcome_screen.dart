@@ -30,14 +30,14 @@ class WelcomeScreen extends StatelessWidget
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.40,
                 width: MediaQuery.of(context).size.width * 0.75,
-                child: Image(
+                child: const Image(
                   image: AssetImage('assets/images/cheapify.png'),
                 ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.17), // Whitespace from top
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.18), // Whitespace from top
                   const Text("Hello! ",
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
@@ -52,7 +52,7 @@ class WelcomeScreen extends StatelessWidget
                           color: const Color.fromRGBO(0, 0, 0, 1).withOpacity(0.2),
                           borderRadius: const BorderRadius.all(Radius.circular(30))
                         ),
-                        height: MediaQuery.of(context).size.height * 0.71,
+                        height: MediaQuery.of(context).size.height * 0.7,
                         width: MediaQuery.of(context).size.width * 0.9,
                         child: Form(
                           key: _formKey,
@@ -61,7 +61,7 @@ class WelcomeScreen extends StatelessWidget
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const SizedBox(height: 31),
+                                const SizedBox(height: 25),
                                 // Email Field
                                 MyTextField(
                                   controller: usernameController,
@@ -96,59 +96,18 @@ class WelcomeScreen extends StatelessWidget
                                 const SizedBox(height: 10),
 
                                 // google and apple sign in
-                                Padding(
-                                  padding: const EdgeInsets.all(0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(color: Colors.white),
-                                          borderRadius: BorderRadius.circular(16),
-                                          color: Colors.grey.shade200,
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Image.asset(
-                                              'assets/images/google_logo.png',
-                                              height: 40,
-                                            ),
-                                            const SizedBox(width: 20),
-                                            const Text(
-                                              "Continue with Google",
-                                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
+                                SignInButton(
+                                  onTap: () {print('Google!');},
+                                  imageAsset: 'assets/images/google_logo.png',
+                                  text: 'Continue with Google'
+                                ),
 
-                                      const SizedBox(height: 10),  
+                                const SizedBox(height: 10),  
 
-                                      Container(
-                                        padding: EdgeInsets.all(20),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(color: Colors.white),
-                                          borderRadius: BorderRadius.circular(16),
-                                          color: Colors.grey.shade200,
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Image.asset(
-                                              'assets/images/apple_logo.png',
-                                              height: 40,
-                                            ),
-                                            const SizedBox(width: 20),
-                                            const Text(
-                                              "Continue with Apple",
-                                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                SignInButton(
+                                  onTap: () {print('Apple!');},
+                                  imageAsset: 'assets/images/apple_logo.png',
+                                  text: 'Continue with Apple'
                                 ),
 
                                 // Fields to create an account
