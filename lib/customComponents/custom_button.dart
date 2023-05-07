@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rainbow_color/rainbow_color.dart';
 
 class CustomButton extends StatelessWidget
 {
@@ -18,16 +20,16 @@ class CustomButton extends StatelessWidget
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(25),
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 233, 201, 71),
+          color: const Color.fromARGB(255, 233, 201, 71),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
           child: Text(
             text,
-            style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
+            style: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
           ),
         ),
         ),
@@ -52,42 +54,35 @@ class SignInButton extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    return Container(
-      child: TextButton(
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade200),
-          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero)
-        ),
-        onPressed: onTap,
-        child: Padding(
-              padding: EdgeInsets.zero,
-              child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
+    return GestureDetector(
+          onTap: onTap,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white),
+                  borderRadius: BorderRadius.circular(16),
+                  color: Colors.grey.shade200,
+                ),
+                child: Row(
                   children: [
-                    Container(
-                      padding: EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(16),
-                        color: Colors.grey.shade200,
-                      ),
-                      child: Row(
-                        children: [
-                          Image.asset(imageAsset, height: 45),
-                          const SizedBox(width: 20),
-                          Text(
-                            text,
-                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
+                    // hacky way to get the rainbow google symbol
+                    (imageAsset == "apple" 
+                    ? Icon(FontAwesomeIcons.apple, size: 45, color: Colors.black) 
+                    : Image.asset(imageAsset, height: 45)),
+                    const SizedBox(width: 30),
+                    Text(
+                      text,
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ],
+                ),
               ),
-        ),
-      ),
-   );
+            ],
+          ),
+      );
   }    
 }
