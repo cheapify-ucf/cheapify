@@ -1,3 +1,7 @@
+**/google-services.json
+**/GoogleService-Info.plist
+
+
 .DS_Store
 .atom/
 .idea/
