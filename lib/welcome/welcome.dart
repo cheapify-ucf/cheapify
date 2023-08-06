@@ -136,7 +136,9 @@ class WelcomeScreen extends StatelessWidget {
                                           TextButton(
                                             onPressed: () {
                                               print('Sign up');
-                                            }, // ToDo: Sign up screen
+                                              Navigator.pushNamed(
+                                                  context, '/signup');
+                                            }, // TODO: Sign up screen
                                             child: const Text(
                                               'Sign up!',
                                               style: TextStyle(

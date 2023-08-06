@@ -5,8 +5,8 @@
 // import 'package:cheapify/customComponents/custom_button.dart';
 import 'package:flutter/material.dart';
 
-class Signup extends StatelessWidget {
-  Signup({super.key});
+class SignupScreen extends StatelessWidget {
+  SignupScreen({super.key});
 
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
@@ -30,7 +30,11 @@ class Signup extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           child: Stack(
             alignment: Alignment.center,
-            children: [],
+            children: const [
+              Text(
+                "Your mom signed up! ",
+              ),
+            ],
           ),
         ),
       ),
