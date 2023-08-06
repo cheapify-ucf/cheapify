@@ -1,12 +1,12 @@
-import 'package:cheapify/pages/welcome_screen.dart';
+import 'package:cheapify/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:cheapify/pages/login.dart';
+import 'package:cheapify/login/login.dart';
 
 void main() {
   //Firebase.initializeApp(
-   // options: DefaultFirebaseOptions.currentPlatform,
+  // options: DefaultFirebaseOptions.currentPlatform,
   //);
   runApp(const MyApp());
 }
@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
       title: 'Cheapify',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 247, 231, 203)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 247, 231, 203)),
       ),
       home: WelcomeScreen(),
     );
@@ -40,7 +41,6 @@ class MyHomePage extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-
 
   // They can probably get redirected to this page after logging in?
   // So I won't be deleting anything for now.

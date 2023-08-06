@@ -1,17 +1,15 @@
 import 'dart:ui';
-import 'package:cheapify/pages/signup.dart';
+import 'package:cheapify/signup/signup.dart';
 import 'package:cheapify/customComponents/custom_button.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget
-{
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen>
-{
+class _LoginScreenState extends State<LoginScreen> {
   bool loginSelected = true;
   bool showPassword = false, showConfirmPassword = false;
 
@@ -22,9 +20,9 @@ class _LoginScreenState extends State<LoginScreen>
   final _formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext context)
-  {
-    return SafeArea( // avoids silly little notches in phones and things alike
+  Widget build(BuildContext context) {
+    return SafeArea(
+      // avoids silly little notches in phones and things alike
       child: Scaffold(
         body: Container(
           height: MediaQuery.of(context).size.height,
@@ -44,20 +42,15 @@ class _LoginScreenState extends State<LoginScreen>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: MediaQuery.of(context).size.height * 0.30),
-                  const Text("Hello! ",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold)),
                   ClipRect(
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(0, 0, 0, 1).withOpacity(0.2),
-                          borderRadius: BorderRadius.all(Radius.circular(30))
-                        ),
+                            color: Color.fromRGBO(0, 0, 0, 1).withOpacity(0.2),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30))),
                         height: MediaQuery.of(context).size.height * 0.58,
                         width: MediaQuery.of(context).size.width * 0.9,
                         child: Form(
@@ -67,44 +60,58 @@ class _LoginScreenState extends State<LoginScreen>
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
+                                const Text("Hello! ",
+                                    style: TextStyle(
+                                        color: Color.fromARGB(255, 0, 0, 0),
+                                        fontSize: 40,
+                                        fontWeight: FontWeight.bold)),
                                 // Email Field
                                 TextFormField(
-                                  validator: (val) => val!.isEmpty ? "Enter your email!" : null,
+                                  validator: (val) =>
+                                      val!.isEmpty ? "Enter your email!" : null,
                                   controller: usernameController,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    enabledBorder: const OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.white),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.grey.shade400),
-                                    ),
-                                    fillColor: Colors.grey.shade200,
-                                    filled: true,
-                                    hintText: 'Email',
-                                    hintStyle: TextStyle(color: Colors.grey.shade500)
-                                  ),
+                                      enabledBorder: const OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.white),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.grey.shade400),
+                                      ),
+                                      fillColor: Colors.grey.shade200,
+                                      filled: true,
+                                      hintText: 'Email',
+                                      hintStyle: TextStyle(
+                                          color: Colors.grey.shade500)),
                                 ),
 
                                 const SizedBox(height: 10),
-                                
+
                                 // Password Field
                                 TextFormField(
-                                  validator: (val) => val!.isEmpty ? "Please enter your password!" : null,
+                                  validator: (val) => val!.isEmpty
+                                      ? "Please enter your password!"
+                                      : null,
                                   controller: passwordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
-                                    suffixIcon: const Icon(Icons.visibility_off),
+                                    suffixIcon:
+                                        const Icon(Icons.visibility_off),
                                     enabledBorder: const OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.white),
+                                      borderSide:
+                                          BorderSide(color: Colors.white),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.grey.shade400),
+                                      borderSide: BorderSide(
+                                          color: Colors.grey.shade400),
                                     ),
                                     fillColor: Colors.grey.shade200,
                                     filled: true,
                                     hintText: 'Password',
-                                    hintStyle: TextStyle(color: Colors.grey.shade500),
+                                    hintStyle:
+                                        TextStyle(color: Colors.grey.shade500),
                                   ),
                                 ),
 
@@ -113,8 +120,7 @@ class _LoginScreenState extends State<LoginScreen>
                                 // Login Button
                                 GestureDetector(
                                   onTap: (() {
-                                    if (_formKey.currentState!.validate())
-                                    {
+                                    if (_formKey.currentState!.validate()) {
                                       print('Sign up :)');
                                     }
                                   }),
@@ -128,7 +134,9 @@ class _LoginScreenState extends State<LoginScreen>
                                       child: Text(
                                         "Login!",
                                         style: TextStyle(
-                                          color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 25),
                                       ),
                                     ),
                                   ),
@@ -140,36 +148,43 @@ class _LoginScreenState extends State<LoginScreen>
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
                                     children: [
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Don\'t have an account?',
                                             style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
+                                                color: Colors.white,
+                                                fontSize: 20),
                                             textAlign: TextAlign.start,
                                           ),
                                           const SizedBox(width: 4),
                                           const Text(
                                             'Sign up!',
                                             style: TextStyle(
-                                              color: Color.fromARGB(255, 233, 201, 71),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20),
+                                                color: Color.fromARGB(
+                                                    255, 233, 201, 71),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20),
                                           ),
                                         ],
                                       ),
                                       SizedBox(
-                                        height: MediaQuery.of(context).size.height * 0.01),
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.01),
                                       const Text(
                                         'Forgot Password?',
                                         style: TextStyle(
-                                          color: Color.fromARGB(255, 233, 201, 71),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20),
+                                            color: Color.fromARGB(
+                                                255, 233, 201, 71),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20),
                                         textAlign: TextAlign.start,
                                       ),
                                     ],

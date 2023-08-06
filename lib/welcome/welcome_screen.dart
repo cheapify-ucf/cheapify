@@ -1,11 +1,10 @@
 import 'dart:ui';
-import 'package:cheapify/pages/signup.dart';
+import 'package:cheapify/signup/signup.dart';
 import 'package:cheapify/customComponents/custom_TextFields.dart';
 import 'package:cheapify/customComponents/custom_button.dart';
 import 'package:flutter/material.dart';
 
-class WelcomeScreen extends StatelessWidget
-{
+class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});
 
   // Text editing controllers
@@ -15,9 +14,9 @@ class WelcomeScreen extends StatelessWidget
   final _formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext context)
-  {
-    return SafeArea( // avoids silly little notches in phones and things alike
+  Widget build(BuildContext context) {
+    return SafeArea(
+      // avoids silly little notches in phones and things alike
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Container(
@@ -37,22 +36,20 @@ class WelcomeScreen extends StatelessWidget
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.18), // Whitespace from top
-                  const Text("Hello! ",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold)),
+                  SizedBox(
+                      height: MediaQuery.of(context).size.height *
+                          0.25), // Whitespace from top
                   ClipRect(
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                          color: const Color.fromRGBO(0, 0, 0, 1).withOpacity(0.2),
-                          borderRadius: const BorderRadius.all(Radius.circular(30))
-                        ),
-                        height: MediaQuery.of(context).size.height * 0.7,
+                            color: const Color.fromRGBO(0, 0, 0, 1)
+                                .withOpacity(0.2),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(30))),
+                        height: MediaQuery.of(context).size.height * 0.6,
                         width: MediaQuery.of(context).size.width * 0.9,
                         child: Form(
                           key: _formKey,
@@ -61,7 +58,12 @@ class WelcomeScreen extends StatelessWidget
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const SizedBox(height: 25),
+                                const Text("Hello! ",
+                                    style: TextStyle(
+                                        color: Color.fromARGB(255, 0, 0, 0),
+                                        fontSize: 40,
+                                        fontWeight: FontWeight.bold)),
+                                const SizedBox(height: 20),
                                 // Email Field
                                 MyTextField(
                                   controller: usernameController,
@@ -71,7 +73,7 @@ class WelcomeScreen extends StatelessWidget
                                 ),
 
                                 const SizedBox(height: 10),
-                                
+
                                 // Password Field
                                 /*MyTextField(
                                   controller: passwordController,
@@ -84,31 +86,31 @@ class WelcomeScreen extends StatelessWidget
 
                                 // Login Button
                                 CustomButton(
-                                  onTap: (() {
-                                    if (_formKey.currentState!.validate())
-                                    {
-                                      print('Sign up :)');
-                                    }
-                                  }),
-                                  text: "Continue with Email"
-                                ),
+                                    onTap: (() {
+                                      if (_formKey.currentState!.validate()) {
+                                        print('Sign up :)');
+                                      }
+                                    }),
+                                    text: "Continue with Email"),
 
                                 const SizedBox(height: 10),
 
                                 // google and apple sign in
                                 SignInButton(
-                                  onTap: () {print('Google!');},
-                                  imageAsset: 'assets/images/google_logo.png',
-                                  text: 'Continue with Google'
-                                ),
+                                    onTap: () {
+                                      print('Google!');
+                                    },
+                                    imageAsset: 'assets/images/google_logo.png',
+                                    text: 'Continue with Google'),
 
-                                const SizedBox(height: 10),  
+                                const SizedBox(height: 10),
 
                                 SignInButton(
-                                  onTap: () {print('Apple!');},
-                                  imageAsset: 'assets/images/apple_logo.png',
-                                  text: 'Continue with Apple'
-                                ),
+                                    onTap: () {
+                                      print('Apple!');
+                                    },
+                                    imageAsset: 'assets/images/apple_logo.png',
+                                    text: 'Continue with Apple'),
 
                                 // Fields to create an account
                                 Padding(
@@ -116,16 +118,18 @@ class WelcomeScreen extends StatelessWidget
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
                                     children: [
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         children: [
                                           const Text(
                                             'Don\'t have an account?',
                                             style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
+                                                color: Colors.white,
+                                                fontSize: 20),
                                             textAlign: TextAlign.start,
                                           ),
                                           const SizedBox(width: 4),
@@ -136,10 +140,11 @@ class WelcomeScreen extends StatelessWidget
                                             child: const Text(
                                               'Sign up!',
                                               style: TextStyle(
-                                                color: Color.fromARGB(255, 233, 201, 71),
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 20),
-                                              ),
+                                                  color: Color.fromARGB(
+                                                      255, 233, 201, 71),
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -148,17 +153,20 @@ class WelcomeScreen extends StatelessWidget
                                           print('Forgot password screen');
                                         },
                                         style: ButtonStyle(
-                                          alignment: const Alignment(-1.0, -3.0),
-                                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                                          alignment:
+                                              const Alignment(-1.0, -3.0),
+                                          padding: MaterialStateProperty.all<
+                                              EdgeInsetsGeometry>(
                                             const EdgeInsets.all(0),
                                           ),
                                         ),
                                         child: const Text(
                                           'Forgot Password?',
                                           style: TextStyle(
-                                            color: Color.fromARGB(255, 233, 201, 71),
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20),
+                                              color: Color.fromARGB(
+                                                  255, 233, 201, 71),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
                                           textAlign: TextAlign.left,
                                         ),
                                       ),
