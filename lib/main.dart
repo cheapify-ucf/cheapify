@@ -1,4 +1,5 @@
-import 'package:cheapify/welcome/welcome_screen.dart';
+import 'package:cheapify/routes.dart';
+import 'package:cheapify/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: appRoutes,
       debugShowCheckedModeBanner: false,
       title: 'Cheapify',
       theme: ThemeData(
@@ -25,7 +27,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
             seedColor: const Color.fromARGB(255, 247, 231, 203)),
       ),
-      home: WelcomeScreen(),
     );
   }
 }
