@@ -36,9 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   firebase_core: ^2.8.0
   firebase_auth: ^4.3.0
-  # firebase_core: 1.18.0
   # cloud_firestore: 3.1.18
-  # firebase_auth: 3.3.20
   # google_sign_in: 5.3.3
   # sign_in_with_apple: 4.0.0
   # crypto: 3.0.1
@@ -96,7 +94,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/images/
+    - assets/images/
   #   - assets/
   #   - assets/covers/
   #   - assets/congrats.gif
@@ -104,5 +102,4 @@ flutter:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-
 

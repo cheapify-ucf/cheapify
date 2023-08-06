@@ -24,6 +24,8 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //TODO:: remove this, probably. just so i can nav back while developing
+      appBar: AppBar(),
       backgroundColor: Colors.grey.shade300,
       body: SingleChildScrollView(
         child: Container(
